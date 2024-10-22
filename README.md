@@ -1,5 +1,5 @@
 <h1><b>BookRama</b><h1>
-<h3>A Book Review Website</h3>
+<h3>The Ultimate Book Review Platform</h3>
 
 <p>Welcome to BookRama, a vibrant web application dedicated to literature lovers! Here, you can easily explore, add, and share book reviews with a community of readers.
 
