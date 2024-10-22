@@ -1,0 +1,35 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="row">
+    <div class="col-8 offset-2"></div>
+</div>
+
+    <body>
+        <h1>Edit book data</h1><br>
+        <form class="needs-validation" novalidate action="/listings/<%= listingData._id %>?_method=PUT" method="post">
+            
+            <div>
+                <label for="title" class="form-label">Title</label>
+                <input required class="form-control" type="text" name="listing[title]" value="<%= listingData.title %>">
+                <div class="valid-feedback">Title looks good!</div>
+                <div class="invalid-feedback">Invalid title!</div><br><br>
+            </div>
+            <div>
+                <label for="description" class="form-label">Author</label>
+                <textarea required cols="20" rows="6" class="form-control" name="listing[author]"><%= listingData.author%></textarea>
+                <div class="valid-feedback">Author looks good!</div>
+                <div class="invalid-feedback">Invalid Author!</div><br><br>
+            </div>
+            <div>
+                <label for="image" class="form-label">Book Image URL</label>
+                <input class="form-control" type="text" name="listing[image][url]" value="<%= listingData.image.url %>">
+            </div>
+            <div class="col-md-4"><br><br>
+                <label for="price" class="form-label">Genre</label>
+                <input required class="form-control" type="text" name="listing[genre]" value="<%= listingData.genre %>">
+                <div class="valid-feedback">Genre looks good!</div>
+                <div class="invalid-feedback">Invalid genre input!</div><br><br>
+            </div>
+            <button class="btn btn-dark edit-btn col-12">Edit</button>
+        </form>
+    </body><br><br>

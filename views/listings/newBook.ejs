@@ -1,0 +1,51 @@
+<% layout("/layouts/boilerplate") %>
+
+    <div class="row">
+        <div class="col-8 offset-2">
+
+            <h1>Add new book</h1><br>
+
+            <body>
+
+                <form class="needs-validation" novalidate action="/listings" method="post">
+
+                    <div>
+                        <label for="title" class="form-label">Title</label>
+                        <input class="form-control" type="text" name="listing[title]" placeholder="Enter Title"
+                            required>
+                        <div class="valid-feedback">Title looks good!</div>
+                        <div class="invalid-feedback">Title should be valid!</div>
+                    </div><br><br>
+
+                    <div>
+                        <label for="description" class="form-label">Author</label>
+                        <textarea class="form-control" name="listing[author]" id="description"
+                            placeholder="Enter Author" required></textarea>
+                        <div class="valid-feedback">Author looks good!</div>
+                        <div class="invalid-feedback">Invalid input!</div>
+                    </div><br><br>
+
+                    <div>
+                        <label for="image" class="form-label">Book Image URL</label>
+                        <input class="form-control" type="text" name="listing[image][url]"
+                            placeholder="Enter image url/link">
+                    </div><br><br>
+
+
+                    <div>
+                        <label for="price" class="form-label">Genre</label>
+                        <input class="form-control" type="text" name="listing[genre]" placeholder="Enter Genre"
+                            required>
+                        <div class="valid-feedback">Genre looks good!</div>
+                        <div class="invalid-feedback">Invalid input!</div>
+                    </div>
+                    <br><br> 
+
+                    <button class="btn btn-dark add-btn col-12">Save</button>
+                    <br><br> 
+
+                </form>
+            </body>
+
+        </div>
+    </div>
