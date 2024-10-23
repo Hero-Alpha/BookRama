@@ -39,7 +39,8 @@ const validateListing = (req, res, next) => {
 
 router.get("/", wrapAsync(async(req,res)=>{
     const allListings = await Listing.find({});
-    res.render("listings/index.ejs",{ allListings });
+    console.log( allListings );
+    res.render("listings/index",{ allListings });
 }));
 
 // --------------------------------------------------------------------------
@@ -85,10 +86,10 @@ router.put("/:id",validateListing, wrapAsync(async(req,res)=>{
 // --------------------------------------------------------------------------
 //DELETE ROUTE("/listings/:id")
 
-router.delete("/:id", wrapAsync(async(req,res)=>{
+router.post("/:id", wrapAsync(async(req,res)=>{
     let { id } = req.params;
     await Listing.findByIdAndDelete(id);
-    res.redirect("/listings");
+    // return res.redirect("/listings");
 }));
 
 
