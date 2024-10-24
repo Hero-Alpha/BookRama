@@ -3,78 +3,67 @@ const mongoose = require("mongoose");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
-const ExpressError = require("./utils/ExpressError.js")
+const ExpressError = require("./utils/ExpressError");
 
-const listings = require("./routes/listing.js")
-const reviews = require("./routes/review.js")
+const listings = require("./routes/listing");
+const reviews = require("./routes/review");
 
 const app = express();
 
-app.engine("ejs",ejsMate);
-app.set("view engine","ejs");
-app.set("views", path.join(__dirname,"/views"));
-app.use(express.static(path.join(__dirname,"public")));
-app.use(express.urlencoded({extended:true}));
+app.engine("ejs", ejsMate);
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+app.use(express.static(path.join(__dirname, "public")));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride("_method"));
 
-//DATABASE CONNECTION
-main()
-    .then(()=>{
-        console.log("Database connected");
-    })
-    .catch((err)=> console.log(err));
-
+// DATABASE CONNECTION
 async function main() {
-    await mongoose.connect("mongodb://127.0.0.1:27017/BookRama");
+    try {
+        await mongoose.connect("mongodb://127.0.0.1:27017/BookRama");
+        console.log("Database connected");
+    } catch (err) {
+        console.error("Database connection error:", err);
+        process.exit(1);  // Exits the app if DB fails
+    }
 }
 
-app.listen(8080, ()=>{
-    console.log("Server listening to port 8080");
+main();
+
+// Start server
+const port = 8080;
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
 });
 
-
-
 // ---------------------------------------------------------------------
 // Redirecting to the listing router
-
-app.use("/listings",listings);
+app.use("/listings", listings);
 
 // ---------------------------------------------------------------------
-// Redirecting to the listing router
-
-app.use("/listings/:id/reviews",reviews);
+// Redirecting to the reviews router
+app.use("/listings/:id/reviews", reviews);
 
 // --------------------------------------------------------------------------
-
 // General error responder
-app.all("*",(req,res,next)=>{
+app.all("*", (req, res, next) => {
     next(new ExpressError(404, "Page Not Found!"));
 });
 
 // --------------------------------------------------------------------------
-
-//User login / signup
-
-app.get('/login', (req, res) => {
-    res.render('login');
+// User login / signup
+app.get("/login", (req, res) => {
+    res.render("login");
 });
 
-app.get('/signup', (req, res) => {
-    res.render('signup');
+app.get("/signup", (req, res) => {
+    res.render("signup");
 });
 
 // --------------------------------------------------------------------------
-
 // Custom error handler
-app.use((err, req, res, next)=>{
-    let { statusCode=500,message="Something Went Wrong!" } = err;
-    res.render("listings/error.ejs",{statusCode,message});
-});
-
-// --------------------------------------------------------------------------
-
-//BASIC API
-app.get("/",(req, res)=>{
-    res.send("Server request accepted");
+app.use((err, req, res, next) => {
+    const { statusCode = 500, message = "Something Went Wrong!" } = err;
+    res.status(statusCode).render("listings/error.ejs", { statusCode, message });
 });

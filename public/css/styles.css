@@ -211,3 +211,15 @@ marquee {
 .review-card {
     margin-bottom: 1.5rem; 
 }
+
+.col-12 div{
+    width: 48%;
+    margin: 15px 0 30px 0 !important;
+}
+
+.logo{
+    height: 65px;
+    width: 65px;
+}
+
+/* ----------------------------------------------------------------------------------------- */

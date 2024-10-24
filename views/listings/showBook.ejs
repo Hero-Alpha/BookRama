@@ -16,14 +16,15 @@
                 <b>Genre: </b><%= listingData.genre %> <br><br>
             </p>
 
-            <div class="row col-12">
-                <div class="col-5 d-flex justify-content-center edit">
+            <div class="row col-12 d-flex justify-content-center">
+                <div class="col-6 d-flex justify-content-center edit">
                     <a class="btn btn-dark w-100 edit-btn" href="/listings/<%= listingData._id %>/edit">Edit</a>
                 </div>
-                <div class="col-5 d-flex justify-content-center">
-                    <form action="/listings/<%= listingData._id %>?_method=DELETE" method="post" class="w-100">
-                        <button class="btn btn-dark w-100">Delete</button>
+                <div class="col-6  d-flex justify-content-center">
+                    <form action="/listings/<%= listingData._id %>?_method=DELETE" method="POST" class="w-100">
+                        <button class="btn btn-dark w-100 delete-btn" type="submit">Delete</button>
                     </form>
+                    
                 </div>
             </div>
         </div>

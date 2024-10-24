@@ -7,19 +7,6 @@ const Listing = require("../models/listing.js");
 const router = express.Router();
 
 
-// ---------------------------------------------------------------------
-// Schema validation handler
-// const validateListing = (req, res, next)=>{
-//     let {error} = listingSchema.validate(req.body);
-//     if(error){
-//         let errMsg = error.details.map((el)=> el.message).join(",");
-//         throw new ExpressError(400, errMsg);
-//     }
-//     else{
-//         next(); 
-//     }
-// }
-
 const validateListing = (req, res, next) => {
     const { error } = listingSchema.validate(req.body);
     if (error) {
@@ -39,8 +26,7 @@ const validateListing = (req, res, next) => {
 
 router.get("/", wrapAsync(async(req,res)=>{
     const allListings = await Listing.find({});
-    console.log( allListings );
-    res.render("listings/index",{ allListings });
+    res.render("listings/index.ejs",{ allListings });
 }));
 
 // --------------------------------------------------------------------------
@@ -86,11 +72,23 @@ router.put("/:id",validateListing, wrapAsync(async(req,res)=>{
 // --------------------------------------------------------------------------
 //DELETE ROUTE("/listings/:id")
 
-router.post("/:id", wrapAsync(async(req,res)=>{
-    let { id } = req.params;
-    await Listing.findByIdAndDelete(id);
-    // return res.redirect("/listings");
-}));
+router.delete('/:id', async (req, res) => { // Remove next parameter for now
+    const { id } = req.params;
+    console.log(`Attempting to delete listing with id: ${id}`);
+    try {
+        const deletedListing = await Listing.findByIdAndDelete(id);
+        if (!deletedListing) {
+            console.log("Listing not found, redirecting...");
+            return res.redirect('/listings'); // Redirect if listing not found
+        }
+        console.log("Listing deleted successfully, redirecting...");
+        res.redirect('/listings'); // Redirect after successful deletion
+    } catch (err) {
+        console.error("Error occurred during deletion", err);
+        res.redirect('/listings'); // Redirect on error
+    }
+});
+
 
 
 // --------------------------------------------------------------------------
