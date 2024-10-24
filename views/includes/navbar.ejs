@@ -8,10 +8,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
 
-<nav class="navbar bg-body-tertiary border-bottom sticky-top">
+<!-- <nav class="navbar bg-body-tertiary border-bottom sticky-top">
     <div class="container-fluid d-flex align-items-center justify-content-between">
         <div class="d-flex align-items-center">
-            <a class="navbar-brand" href="#"><img src="/resources/logo.png"class="logo"></a>
+            <a class="navbar-brand" href="#"><img src="/resources/logo.png" class="logo" alt="Logo"></a>
             <p class="navbar-title ms-1 mb-0">BookRama</p>
         </div>
 
@@ -19,14 +19,47 @@
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-    
-        <div class="collapse bg-body-tertiary navbar-collapse custom-navbar" id="navbarNavAltMarkup">
-            <div class="navbar-nav ms-auto mt-2 mt-lg-0">
+
+        <div class="collapse bg-body-tertiary navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ms-auto mt-2 mt-lg-0 flex-column">
                 <a class="nav-link active" aria-current="page" href="/listings">Home</a>
                 <a class="nav-link" href="/listings">Books</a>
                 <a class="nav-link" href="/listings/new">Add New Book</a>
             </div>
         </div>
     </div>
-</nav>
+</nav> -->
 
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary  sticky-top underline-dark">
+    <div class="container-fluid">
+        <div class="d-flex align-items-center">
+            <a class="navbar-brand" href="#"><img src="/resources/logo.png" class="logo" alt="Logo"></a>
+            <p class="navbar-title ms-1 mb-0">BookRama</p>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
+            aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link flex-sm-fill text-sm-center" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link flex-sm-fill text-sm-center" href="/listings">Our Books</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link flex-sm-fill text-sm-center" href="/listings/new">Add Book</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link flex-sm-fill text-sm-center" href="#">Reviews</a>
+                </li>
+            </ul>
+            <form class="d-flex search" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-dark" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>

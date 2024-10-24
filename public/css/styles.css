@@ -3,14 +3,14 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: #fbfbfb;
 }
 
 .navbar-title {
-    margin-top: 9px;
+    margin-top: 7px;
     font-family: "Parisienne", cursive;
-    font-weight: 900;
-    font-size: xx-large;
-    font-style: normal;
+    font-weight:700;
+    font-size:  35px;;
 }
 
 .d-flex {
@@ -28,21 +28,40 @@ body {
 }
 
 .navbar {
-    height: 5rem;
-    background-color: white;
+    height: 6.5rem;
+}
+
+.search{
+    width: 100%;
+    /* margin-left: 4rem !important; */
+    margin-bottom: 1rem;
 }
 
 .nav-link {
     color: #222222 !important;
     font-weight: 600;
     border-radius: 5px;
-    background-color: #e0e0e077;
+    background-color: #fbfbfb;
     padding-left: 5px !important;
-    margin: 3px 15px 5px 70px !important;
+    margin: 3px 5px 5px 5px !important;
+}
+
+@media (min-width: 740px) {
+    .nav-link{
+        width: 8rem;
+    }
+    
+}
+
+
+.nav-link:hover {
+    transform: translateY(-0.4px);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
 }
 
 .collapse {
-    background-color: white;
+    background-color: #fbfbfb;
+    /* margin-left: 20px; */
 }
 
 .f-info-link a {
@@ -86,6 +105,7 @@ body {
 }
 
 .card {
+    padding: 1rem;
     border: none;
     display: flex;
     flex-direction: column;
@@ -176,9 +196,10 @@ body {
 }
 
 marquee {
-    margin-top: 5px;
-    background-color: #96969675;
+    margin-top: 8px;
+    background-color: #96969635;
     height: 30px;
+    text-align: center;
 }
 
 .btns {
