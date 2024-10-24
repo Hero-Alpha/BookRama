@@ -4,6 +4,8 @@ const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const ExpressError = require("./utils/ExpressError");
+const session = require("express-session");
+const flash = require("connect-flash");
 
 const listings = require("./routes/listing");
 const reviews = require("./routes/review");
@@ -17,6 +19,23 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride("_method"));
+
+// ---------------------------------------------------------------------
+// Adding sessions
+const sessionOptions = {
+    secret : "mysecretcode",
+    resave: false,
+    saveUninitialized : true,
+    cookie:{
+        expire: Date.now() + 7 * 25 * 60 * 60 * 1000,
+        maxAge: 7 * 25 * 60 * 60 * 1000,
+        httpOnly: true
+    },
+};
+
+app.use(session(sessionOptions));
+app.use(flash());
+// ---------------------------------------------------------------------
 
 // DATABASE CONNECTION
 async function main() {
@@ -32,9 +51,19 @@ async function main() {
 main();
 
 // Start server
-const port = 8080;
+const port = 6000;
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
+});
+
+// ---------------------------------------------------------------------
+// middleware for message flash
+app.use((req,res,next)=>{
+    res.locals.success = req.flash("success");
+    res.locals.error = req.flash("error");
+    res.locals.deleted = req.flash("deleted");
+    res.locals.edited = req.flash("edited");
+    next();
 });
 
 // ---------------------------------------------------------------------

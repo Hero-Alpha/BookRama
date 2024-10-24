@@ -26,6 +26,9 @@ const validateListing = (req, res, next) => {
 
 router.get("/", wrapAsync(async(req,res)=>{
     const allListings = await Listing.find({});
+    if(!allListings){
+        req.flash("error","Lisitng you requested does not exist")
+    }
     res.render("listings/index.ejs",{ allListings });
 }));
 
@@ -42,6 +45,7 @@ router.post("/",validateListing, wrapAsync(async(req,res,next)=>{
         let listing = req.body.listing;
         let newListing = new Listing(listing);
         await newListing.save();
+        req.flash("success", "New book added to the collection");
         res.redirect("/listings");
     })
     
@@ -57,6 +61,9 @@ router.get("/:id/edit", wrapAsync(async(req,res)=>{
     // console.log(req.body);
 
     let listingData = await Listing.findById(id);
+    if(!listingData){
+        req.flash("error","Lisitng you requested does not exist")
+    }
     res.render("listings/editBook",{ listingData });
 }));
 
@@ -66,6 +73,7 @@ router.put("/:id",validateListing, wrapAsync(async(req,res)=>{
     console.log(req.body);
 
     await Listing.findByIdAndUpdate(id, {...req.body.listing});
+    req.flash("edited", "Book informatoin edited");
     res.redirect("/listings");
 }));
 
@@ -82,9 +90,11 @@ router.delete('/:id', async (req, res) => { // Remove next parameter for now
             return res.redirect('/listings'); // Redirect if listing not found
         }
         console.log("Listing deleted successfully, redirecting...");
+        req.flash("deleted", "Book successfully deleted");
         res.redirect('/listings'); // Redirect after successful deletion
     } catch (err) {
         console.error("Error occurred during deletion", err);
+        req.flash("deleted", "Book successfully deleted");
         res.redirect('/listings'); // Redirect on error
     }
 });
