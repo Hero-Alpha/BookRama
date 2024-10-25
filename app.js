@@ -51,7 +51,7 @@ async function main() {
 main();
 
 // Start server
-const port = 6000;
+const port = 6060;
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
@@ -65,6 +65,14 @@ app.use((req,res,next)=>{
     res.locals.edited = req.flash("edited");
     next();
 });
+
+// ---------------------------------------------------------------------
+// Redirecting to the landing page
+app.get('/', (req, res) => {
+    res.render('landing');
+});
+
+
 
 // ---------------------------------------------------------------------
 // Redirecting to the listing router

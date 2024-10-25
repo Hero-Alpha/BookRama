@@ -1,0 +1,164 @@
+html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: #cf6824c6;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+  }
+  
+  input,
+  a,
+  p,
+  li {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+  }
+
+.masthead h1{
+        font-family: "Ranchers", sans-serif;
+        font-weight: 600;
+        font-style: normal;
+    }
+    
+.masthead h3{
+    font-family: "Ranchers", sans-serif;
+    font-weight: 400;
+}
+  
+  header.masthead {
+    position: relative;
+    background: url('https://png.pngtree.com/background/20230527/original/pngtree-an-old-bookcase-in-a-library-picture-image_2760144.jpg') /*black no-repeat center center scroll*/;
+    background-size: cover;
+    padding-top: 12rem;
+    padding-bottom: 8rem;
+  }
+  
+  header.masthead .overlay {
+    position: absolute;
+    background-color: #a43f008f;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.3;
+  }
+  
+  header.masthead h1 {
+    font-size: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    header.masthead {
+      padding-top: 12rem;
+      padding-bottom: 12rem;
+    }
+    header.masthead h1 {
+      font-size: 3rem;
+    }
+  }
+  
+  .showcase .showcase-text {
+    padding: 3rem;
+  }
+  
+  .showcase .showcase-img {
+    min-height: 30rem;
+    background-size: cover;
+  }
+  
+  @media (min-width: 768px) {
+    .showcase .showcase-text {
+      padding: 7rem;
+    }
+  }
+  
+  .features-icons i{
+      color: rgb(183, 118, 34);
+  }
+  .features-icons {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+  
+  .features-icons .features-icons-item {
+    max-width: 20rem;
+  }
+  
+  .features-icons .features-icons-item .features-icons-icon {
+    height: 7rem;
+  }
+  
+  .features-icons .features-icons-item .features-icons-icon i {
+    font-size: 4.5rem;
+  }
+  
+  .features-icons .features-icons-item:hover .features-icons-icon i {
+    font-size: 5rem;
+  }
+  
+  .testimonials {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+  
+  .testimonials .testimonial-item {
+    max-width: 18rem;
+  }
+  
+  .testimonials .testimonial-item img {
+    max-width: 12rem;
+    -webkit-box-shadow: 0px 5px 5px 0px #adb5bd;
+    box-shadow: 0px 5px 5px 0px #adb5bd;
+  }
+
+  .square-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 0;
+    transition: transform 0.3s, filter 0.3s;
+  }
+
+  .genre-item {
+    transition: transform 0.3s ease;
+  }
+
+  .genre-item:hover {
+    transform: scale(1.05);
+  }
+
+  .genre-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: filter 0.3s ease;
+  }
+
+  .genre-item:hover .genre-img {
+    filter: brightness(1.4);
+  }
+
+  @media (min-width: 768px) {
+    .col-lg-2 {
+      flex: 0 0 20%;
+      max-width: 20%;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .col-md-4, .col-sm-6 {
+      margin-bottom: 1rem;
+    }
+  }
+  

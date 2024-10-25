@@ -3,15 +3,20 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #fbfbfb;
+    background-color: #F5EFE6;
 }
 
+
 .navbar-title {
+    margin-right: 5px;
     margin-top: 7px;
     font-family: "Parisienne", cursive;
-    font-weight:700;
-    font-size:  35px;;
+    font-weight: 700;
+    font-size: 40px;
+    color: #fecd85; /* Light color for contrast */
+    text-shadow: 2px 2px 4px rgba(63, 41, 27, 0.8); /* Dark brown shadow */
 }
+
 
 .d-flex {
     margin-left: 10px !important;
@@ -25,53 +30,58 @@ body {
     font-family: "Neonderthaw", cursive;
     font-weight: 400;
     font-style: normal;
+    color: #E5C9B5; /* Soft light brown */
 }
 
 .navbar {
-    height: 6.5rem;
+    height: 6.1rem;
+    background-color: #6B4C3A; /* Dark brown */
+    color: #F5EFE6; /* Light off-white */
 }
 
-.search{
-    width: 100%;
-    /* margin-left: 4rem !important; */
-    margin-bottom: 1rem;
+.search {
+    width: 98%;
+    margin: 1.4rem 0 1rem 0;
 }
 
 .nav-link {
-    color: #222222 !important;
+    color: #3E2A23 !important; /* Dark brown */
+    font-size: large;
     font-weight: 600;
     border-radius: 5px;
-    background-color: #fbfbfb;
+    background-color: #f8f9fa; /* Light brown background */
     padding-left: 5px !important;
-    margin: 3px 5px 5px 5px !important;
+    margin: 3px 5px 5px 2px !important;
 }
 
 @media (min-width: 740px) {
-    .nav-link{
+    .nav-link {
         width: 8rem;
     }
-    
 }
-
 
 .nav-link:hover {
     transform: translateY(-0.4px);
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+    background-color: #bfa487; /* Muted brown on hover */
 }
 
 .collapse {
-    background-color: #fbfbfb;
-    /* margin-left: 20px; */
+    background-color: #f8f9fa; /* Light brown for collapsible elements */
 }
+
+
+
 
 .f-info-link a {
     margin-right: 2rem;
     text-decoration: none;
-    color: #222222;
+    color: #F5EFE6;
 }
 
 .f-info-link a:hover {
     text-decoration: underline;
+    color: #D8C3A5;
 }
 
 .f-info-link,
@@ -98,10 +108,10 @@ body {
     display: flex;
     text-align: center;
     height: 8rem;
-    background-color: #ebebeb;
     flex-wrap: wrap;
     justify-content: center;
     align-items: space-evenly;
+    background-color:#bfa487 !important;
 }
 
 .card {
@@ -110,14 +120,17 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    
 }
 
 .card-img-top {
     height: 20rem;
     object-fit: contain;
     border-radius: 1rem;
+    background-blend-mode: color-burn;
 }
+
 
 .card-body {
     padding: 0.75rem;
@@ -125,7 +138,7 @@ body {
 
 .card-text {
     font-weight: 400;
-    color: black !important;
+    color: #3E2A23 !important; /* Dark brown for text */
 }
 
 .container {
@@ -143,27 +156,31 @@ body {
 
 .card-img-overlay:hover {
     opacity: 0.15;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.8); /* Light semi-transparent background */
 }
 
 .card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #ffffff; /* Light brown for card background */
+    border: 1px solid #C3B299; /* Soft beige border */
+    color: #4F4A47; /* Dark brown for card text */
 }
 
 .card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 12px rgba(128, 78, 49, 0.406); /* Dark brown shadow on hover */
 }
 
 .add-btn,
 .edit-btn {
-    background-color: #fe424d !important;
+    background-color: #B85C38 !important; /* Warm brown for buttons */
     border: none !important;
+    color: #F5EFE6 !important; /* Light text for contrast */
 }
 
 .add-btn:hover,
 .edit-btn:hover {
-    background-color: #d0000e !important;
+    background-color: #8A4A2B !important; /* Darker brown on hover */
 }
 
 .show-img {
@@ -172,6 +189,7 @@ body {
     object-fit: contain;
     border-radius: 1rem;
 }
+
 
 .btns {
     display: flex;
@@ -196,8 +214,8 @@ body {
 }
 
 marquee {
-    margin-top: 8px;
-    background-color: #96969635;
+    margin-top: 2px;
+    background-color: #bfa487;
     height: 30px;
     text-align: center;
 }

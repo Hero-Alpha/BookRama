@@ -21,6 +21,14 @@ const validateListing = (req, res, next) => {
 
 
 // ---------------------------------------------------------------------
+//HOME ROUTE ("/listings/home")
+
+router.get("/landing",(req,res)=>{
+    res.render("listings/landing.ejs");
+});
+
+
+// ---------------------------------------------------------------------
 //INDEX ROUTE ("/listings")
 // to show all the listings in the database
 
@@ -62,7 +70,7 @@ router.get("/:id/edit", wrapAsync(async(req,res)=>{
 
     let listingData = await Listing.findById(id);
     if(!listingData){
-        req.flash("error","Lisitng you requested does not exist")
+        req.flash("error","Lisiting you requested does not exist")
     }
     res.render("listings/editBook",{ listingData });
 }));
@@ -73,7 +81,7 @@ router.put("/:id",validateListing, wrapAsync(async(req,res)=>{
     console.log(req.body);
 
     await Listing.findByIdAndUpdate(id, {...req.body.listing});
-    req.flash("edited", "Book informatoin edited");
+    req.flash("edited", "Book information edited");
     res.redirect("/listings");
 }));
 
